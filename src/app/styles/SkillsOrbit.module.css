@@ -1,0 +1,72 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+}
+
+.inner {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  animation: rotateOrbit 25s linear infinite;
+  transform-style: preserve-3d;
+}
+
+.cardCircle {
+  --radius: 240px;
+  --angle: calc(360deg / var(--quantity));
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 110px;
+  height: 140px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--foreground);
+  text-align: center;
+  transform: rotateY(calc(var(--index) * var(--angle)))
+    translateZ(var(--radius));
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardCircle:hover {
+  transform: rotateY(calc(var(--index) * var(--angle)))
+    translateZ(calc(var(--radius) + 30px)) scale(1.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.cardCircle svg {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 10px;
+  color: var(--foreground);
+}
+
+.cardCircle p {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+@keyframes rotateOrbit {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}

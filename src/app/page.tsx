@@ -1,16 +1,12 @@
 import { projects } from "@/app/data/projects";
 import ProjectCard from "@/app/components/ProjectCard";
 import SkillsOrbit from "@/app/components/SkillsOrbit";
+import Hero from "@/app/components/Hero";
 
 export default function HomePage() {
   return (
     <>
-      <section id="hero" className="py-20 text-center max-w-3xl mx-auto">
-        <h1 className="text-5xl font-bold mb-4">Hola, soy Mirko Pérez</h1>
-        <p className="text-lg">
-          Desarrollador web fullstack, creador de soluciones digitales.
-        </p>
-      </section>
+      <Hero />
 
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-4">Habilidades</h2>

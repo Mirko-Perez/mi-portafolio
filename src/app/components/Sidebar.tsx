@@ -14,6 +14,7 @@ import {
   FaUser,
   FaFolderOpen,
   FaComments,
+  FaBook,
 } from "react-icons/fa";
 import Link from "next/link";
 
@@ -31,7 +32,7 @@ export default function Sidebar() {
     <>
       {/* Botón hamburguesa solo en mobile */}
       <button
-        className="fixed top-4 left-4 z-50 md:hidden text-blue-500 bg-white dark:bg-gray-900 p-2 rounded-full shadow"
+        className="fixed top-4 left-4 z-50 md:hidden text-black bg-white border-2 dark:bg-black dark:text-white p-2 rounded-full shadow"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
@@ -59,9 +60,10 @@ export default function Sidebar() {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.3 }}
-            className={`fixed top-0 left-0 h-full w-64 p-6 z-40 flex flex-col justify-between shadow-xl
-              ${isDark ? "bg-gray-900 text-gray-300" : "bg-white text-gray-700"}
-            `}
+            className={`
+        fixed inset-0 z-40 flex flex-col justify-between p-6 shadow-xl
+        ${isDark ? "bg-gray-900 text-gray-300" : "bg-white text-gray-700"}
+      `}
           >
             <SidebarContent onLinkClick={() => setIsOpen(false)} />
           </motion.aside>
@@ -74,6 +76,8 @@ export default function Sidebar() {
 function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
   const navItems = [
     { href: "#hero", label: "Inicio", icon: <FaHome size={16} /> },
+    { href: "#habilidades", label: "Habilidades", icon: <FaBook size={16} /> },
+
     {
       href: "#proyectos",
       label: "Proyectos",

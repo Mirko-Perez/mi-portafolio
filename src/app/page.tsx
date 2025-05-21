@@ -8,7 +8,7 @@ export default function HomePage() {
     <>
       <Hero />
 
-      <section className="mb-12">
+      <section id="habilidades" className="mb-12">
         <h2 className="text-2xl font-bold mb-4">Habilidades</h2>
         <SkillsOrbit />
       </section>

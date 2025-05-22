@@ -78,18 +78,21 @@ function useActiveSection(ids: string[]) {
 
   useEffect(() => {
     function onScroll() {
-      let current = "";
+      let closestSection = "";
+      let minOffset = Infinity;
+
       for (const id of ids) {
         const section = document.getElementById(id);
         if (section) {
-          const rect = section.getBoundingClientRect();
-          // Cuando la sección top está cerca del tope de la ventana (por ej. 100px)
-          if (rect.top <= 100) {
-            current = id;
+          const offset = Math.abs(section.getBoundingClientRect().top);
+          if (offset < minOffset) {
+            minOffset = offset;
+            closestSection = id;
           }
         }
       }
-      setActiveId(current);
+
+      setActiveId(closestSection);
     }
 
     window.addEventListener("scroll", onScroll);

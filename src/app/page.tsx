@@ -22,7 +22,7 @@ export default function HomePage() {
                 About Me
               </h2>
               <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-                {`Front End Developer with over 3 years of experience building interactive and engaging user interfaces. I enjoy working in dynamic, multidisciplinary teams, contributing innovative and collaborative solutions.
+                {`Front End Developer with 3 years of experience building interactive and engaging user interfaces. I enjoy working in dynamic, multidisciplinary teams, contributing innovative and collaborative solutions.
 
 I excel at transforming creative designs into clean, efficient code using HTML, CSS, and JavaScript, as well as modern frameworks like React and Next.js.
 
@@ -54,7 +54,7 @@ I have solid experience integrating APIs and optimizing web performance. Current
                   Resistencia, Chaco
                 </p>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Ingeniería en Sistemas de la Información (2017 - 2021)
+                  Systems Engineering (2017 - 2021, incomplete)
                 </p>
               </div>
             </div>
@@ -94,7 +94,7 @@ I have solid experience integrating APIs and optimizing web performance. Current
       <FadeInWhenVisible>
         <section
           id="contact"
-          className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-10"
+          className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-10 scroll-mt-32"
         >
           <ContactForm />
         </section>

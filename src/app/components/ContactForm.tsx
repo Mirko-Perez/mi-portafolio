@@ -44,10 +44,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section
-      id="contact"
-      className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row gap-10"
-    >
+    <>
       {/* Left message */}
       <div className="md:w-1/2 flex flex-col justify-start">
         <h2 className="text-3xl font-bold mb-4 text-foreground">{`Contact`}</h2>
@@ -172,6 +169,6 @@ export default function ContactSection() {
           </p>
         )}
       </form>
-    </section>
+    </>
   );
 }

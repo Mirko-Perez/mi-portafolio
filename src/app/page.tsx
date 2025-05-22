@@ -92,7 +92,12 @@ I have solid experience integrating APIs and optimizing web performance. Current
       <WaveSeparator />
 
       <FadeInWhenVisible>
-        <ContactForm />
+        <section
+          id="contact"
+          className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row gap-10"
+        >
+          <ContactForm />
+        </section>
       </FadeInWhenVisible>
     </>
   );

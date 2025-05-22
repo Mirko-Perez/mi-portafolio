@@ -117,6 +117,10 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
     if (onLinkClick) onLinkClick();
   }
 
+  const { theme } = useTheme();
+
+  const isDark = theme === "dark";
+
   return (
     <>
       {/* Parte superior */}
@@ -152,11 +156,12 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
                 key={item.href}
                 href={`#${item.href}`}
                 className={`flex items-center gap-2 w-full relative px-2 py-1
-                  before:absolute before:left-0 before:-bottom-1 before:h-[2px] before:w-full before:bg-gray-400 before:opacity-20
-                  after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300
-                  hover:after:w-full
-                  ${isActive ? "after:w-full" : ""}
-                `}
+        before:absolute before:left-0 before:-bottom-1 before:h-[2px] before:w-full before:bg-gray-400 before:opacity-20
+        after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:transition-all after:duration-300
+        hover:after:w-full
+        ${isActive ? "after:w-full" : ""}
+        ${isDark ? "after:bg-white" : "after:bg-black"}
+      `}
                 onClick={() => handleClick(item.href)}
               >
                 {item.icon} {item.label}

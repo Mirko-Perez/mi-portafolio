@@ -36,6 +36,7 @@ export default function ContactSection() {
       );
       setResultMsg("Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setResultMsg("Failed to send the message. Please try again later.");
     } finally {

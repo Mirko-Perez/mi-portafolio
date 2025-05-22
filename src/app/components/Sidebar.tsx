@@ -113,6 +113,7 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
   // Hook para detectar sección activa según scroll
   const activeHref = useActiveSection(navItems.map((item) => item.href));
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   function handleClick(href: string) {
     if (onLinkClick) onLinkClick();
   }

@@ -73,35 +73,49 @@ export default function Sidebar() {
   );
 }
 
+function useActiveSection(ids: string[]) {
+  const [activeId, setActiveId] = useState<string>("");
+
+  useEffect(() => {
+    function onScroll() {
+      let current = "";
+      for (const id of ids) {
+        const section = document.getElementById(id);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          // Cuando la sección top está cerca del tope de la ventana (por ej. 100px)
+          if (rect.top <= 100) {
+            current = id;
+          }
+        }
+      }
+      setActiveId(current);
+    }
+
+    window.addEventListener("scroll", onScroll);
+    onScroll(); // para setear estado inicial al cargar
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [ids]);
+
+  return activeId;
+}
+
 function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
   const navItems = [
-    { href: "#home", label: "Home", icon: <FaHome size={16} /> },
-    { href: "#about-me", label: "About Me", icon: <FaUser size={16} /> },
-    { href: "#skills", label: "Skills", icon: <FaBook size={16} /> },
-
-    {
-      href: "#projects",
-      label: "Projects",
-      icon: <FaFolderOpen size={16} />,
-    },
-
-    { href: "#contact", label: "Contact", icon: <FaComments size={16} /> },
+    { href: "home", label: "Home", icon: <FaHome size={16} /> },
+    { href: "about-me", label: "About Me", icon: <FaUser size={16} /> },
+    { href: "skills", label: "Skills", icon: <FaBook size={16} /> },
+    { href: "projects", label: "Projects", icon: <FaFolderOpen size={16} /> },
+    { href: "contact", label: "Contact", icon: <FaComments size={16} /> },
   ];
 
-  const [activeHref, setActiveHref] = useState<string>("");
+  // Hook para detectar sección activa según scroll
+  const activeHref = useActiveSection(navItems.map((item) => item.href));
 
   function handleClick(href: string) {
-    setActiveHref(href);
     if (onLinkClick) onLinkClick();
   }
-
-  const launchConfetti = () => {
-    confetti({
-      particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 },
-    });
-  };
 
   return (
     <>
@@ -118,7 +132,13 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
 
         <p
           className="text-sm text-blue-500 mb-6 text-center cursor-pointer hover:underline"
-          onClick={launchConfetti}
+          onClick={() => {
+            confetti({
+              particleCount: 100,
+              spread: 70,
+              origin: { y: 0.6 },
+            });
+          }}
         >
           Frontend Developer
         </p>
@@ -130,13 +150,13 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
             return (
               <Link
                 key={item.href}
-                href={item.href}
+                href={`#${item.href}`}
                 className={`flex items-center gap-2 w-full relative px-2 py-1
-    before:absolute before:left-0 before:-bottom-1 before:h-[2px] before:w-full before:bg-gray-400 before:opacity-20
-    after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300
-    hover:after:w-full
-    ${isActive ? "after:w-full" : ""}
-  `}
+                  before:absolute before:left-0 before:-bottom-1 before:h-[2px] before:w-full before:bg-gray-400 before:opacity-20
+                  after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-black after:transition-all after:duration-300
+                  hover:after:w-full
+                  ${isActive ? "after:w-full" : ""}
+                `}
                 onClick={() => handleClick(item.href)}
               >
                 {item.icon} {item.label}

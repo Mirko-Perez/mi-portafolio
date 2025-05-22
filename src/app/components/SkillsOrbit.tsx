@@ -6,29 +6,35 @@ import {
   FaCss3Alt,
   FaHtml5,
   FaJs,
-  FaGulp,
   FaReact,
   FaPhp,
-  FaVuejs,
-  FaNodeJs,
-  FaLinux,
+  FaGithub,
 } from "react-icons/fa";
-import { SiTypescript, SiMysql, SiSass } from "react-icons/si";
+import {
+  SiTypescript,
+  SiMysql,
+  SiSass,
+  SiNextdotjs,
+  SiLaravel,
+  SiPostman,
+  SiTailwindcss,
+} from "react-icons/si";
 import styles from "@/app/styles/SkillsOrbit.module.css";
 
 const skills: { icon: IconType; label: string }[] = [
+  { icon: FaReact, label: "React" },
+  { icon: SiTypescript, label: "TypeScript" },
+  { icon: SiNextdotjs, label: "Next.js" },
+  { icon: FaPhp, label: "PHP" },
+  { icon: SiLaravel, label: "Laravel" },
+  { icon: SiMysql, label: "MySQL" },
+  { icon: SiPostman, label: "Postman" },
   { icon: FaCss3Alt, label: "CSS" },
   { icon: FaHtml5, label: "HTML" },
   { icon: FaJs, label: "JavaScript" },
-  { icon: FaGulp, label: "Gulp" },
-  { icon: SiTypescript, label: "TypeScript" },
-  { icon: FaReact, label: "React" },
-  { icon: SiMysql, label: "SQL" },
+  { icon: FaGithub, label: "GitHub" },
   { icon: SiSass, label: "Sass" },
-  { icon: FaPhp, label: "PHP" },
-  { icon: FaVuejs, label: "Vue.js" },
-  { icon: FaNodeJs, label: "Node.js" },
-  { icon: FaLinux, label: "Linux Mint" },
+  { icon: SiTailwindcss, label: "Tailwind CSS" },
 ];
 
 export default function SkillsOrbit() {

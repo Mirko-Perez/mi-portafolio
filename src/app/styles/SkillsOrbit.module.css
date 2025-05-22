@@ -1,11 +1,13 @@
 .wrapper {
   position: relative;
   width: 100%;
-  height: 500px;
+  min-height: 350px; /* en lugar de height fija */
+  height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   perspective: 1200px;
+  overflow: visible; /* evitar que se corte en móviles */
 }
 
 .inner {
@@ -28,7 +30,6 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -40,6 +41,9 @@
     translateZ(var(--radius));
   transform-style: preserve-3d;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  border: 3px solid rgba(0, 0, 0, 0.3); /* borde gris oscuro translúcido para modo claro */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .cardCircle:hover {
@@ -64,9 +68,45 @@
 
 @keyframes rotateOrbit {
   from {
-    transform: rotateY(0deg);
+    transform: rotateX(-15deg) rotateY(0deg);
   }
   to {
-    transform: rotateY(360deg);
+    transform: rotateX(-15deg) rotateY(360deg);
+  }
+}
+
+/* Ajustes para móvil */
+@media (max-width: 640px) {
+  .wrapper {
+    height: 350px;
+  }
+
+  .inner {
+    width: 280px; /* un poco más ancho para que la órbita crezca */
+    height: 280px;
+  }
+
+  .cardCircle {
+    --radius: 140px; /* aumento el radio para más separación */
+    width: 70px; /* hago las tarjetas un poco más chicas */
+    height: 90px;
+    padding: 8px;
+    transform: rotateY(calc(var(--index) * var(--angle)))
+      translateZ(var(--radius));
+  }
+
+  .cardCircle:hover {
+    transform: rotateY(calc(var(--index) * var(--angle)))
+      translateZ(calc(var(--radius) + 20px)) scale(1.1);
+  }
+
+  .cardCircle svg {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 6px;
+  }
+
+  .cardCircle p {
+    font-size: 0.75rem;
   }
 }

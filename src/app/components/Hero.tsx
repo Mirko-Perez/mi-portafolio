@@ -2,13 +2,14 @@
 
 import { motion } from "framer-motion";
 import ParticlesBackground from "./ParticlesBackground";
+import { FaChevronDown } from "react-icons/fa";
 
 export default function Hero() {
   return (
     <section
       id="home"
-      aria-label="Sección principal de presentación"
-      className="relative h-screen flex flex-col justify-center items-center text-center px-4 bg-white overflow-hidden"
+      aria-label="Main introduction section"
+      className="relative h-screen flex flex-col justify-center items-center text-center bg-white overflow-hidden"
     >
       <motion.h2
         className="text-2xl md:text-3xl text-muted-foreground mb-2 flex items-center gap-2 z-10"
@@ -16,7 +17,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1 }}
       >
-        ¡Hola!
+        Hello!
         <motion.span
           animate={{ rotate: [0, 15, -10, 15, 0] }}
           transition={{
@@ -30,14 +31,16 @@ export default function Hero() {
           👋
         </motion.span>
       </motion.h2>
+
       <ParticlesBackground />
+
       <motion.h1
         className="text-4xl md:text-6xl font-bold mb-4 text-foreground z-10"
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        Soy Mirko Perez
+        {`I'm Mirko Perez`}
       </motion.h1>
 
       <motion.h2
@@ -46,7 +49,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
       >
-        Desarrollador Frontend
+        Frontend Developer
       </motion.h2>
 
       <motion.p
@@ -55,7 +58,7 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
       >
-        Apasionado por crear experiencias web modernas, rápidas y accesibles.
+        Passionate about building modern, fast, and accessible web experiences.
       </motion.p>
 
       <motion.div
@@ -65,42 +68,55 @@ export default function Hero() {
         transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
       >
         <a
-          href="#contacto"
+          href="#contact"
           className="
-      cursor-pointer
-      px-6 py-3
-      rounded-xl font-medium
-      transition-colors duration-300
+            cursor-pointer
+            px-6 py-3
+            rounded-xl font-medium
+            transition-colors duration-300
 
+            bg-black text-white border border-black
+            hover:bg-gray-800
 
-      bg-black text-white border border-black
-      hover:bg-gray-800
-
-
-      dark:bg-white dark:text-black dark:border-black
-      dark:hover:bg-gray-200
-    "
+            dark:bg-white dark:text-black dark:border-black
+            dark:hover:bg-gray-200
+          "
         >
-          Contactame
+          Contact Me
         </a>
         <a
           href="/cv.pdf"
           target="_blank"
           className="
-      cursor-pointer
-      px-6 py-3
-      rounded-xl font-medium
-      transition-colors duration-300
+            cursor-pointer
+            px-6 py-3
+            rounded-xl font-medium
+            transition-colors duration-300
 
-      bg-black text-white border border-black
-      hover:bg-gray-800
+            bg-black text-white border border-black
+            hover:bg-gray-800
 
-      dark:bg-white dark:text-black dark:border-black
-      dark:hover:bg-gray-200
-    "
+            dark:bg-white dark:text-black dark:border-black
+            dark:hover:bg-gray-200
+          "
         >
-          Ver CV
+          CV
         </a>
+      </motion.div>
+
+      <motion.div
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-0 cursor-pointer mb-10 text-black dark:text-slate-600"
+        animate={{ y: [0, -10, 0] }}
+        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+        onClick={() => {
+          const aboutSection = document.getElementById("about-me");
+          if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: "smooth" });
+          }
+        }}
+        aria-label="Scroll to About Me section"
+      >
+        <FaChevronDown size={42} />
       </motion.div>
     </section>
   );

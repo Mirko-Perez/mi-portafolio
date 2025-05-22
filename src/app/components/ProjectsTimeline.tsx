@@ -95,7 +95,7 @@ const ProjectsTimeline = () => {
           href="https://www.fibrazo.com.ar/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-500 underline mt-2 inline-block"
+          className="text-blue-500 mt-2 hover:underline inline-block"
         >
           Visit Website
         </a>
@@ -155,7 +155,7 @@ const ProjectsTimeline = () => {
           href="https://www.skybrary.org/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-500 underline mt-2 inline-block"
+          className="text-blue-500 hover:underline mt-2 inline-block"
         >
           Visit Website
         </a>
@@ -215,7 +215,7 @@ const ProjectsTimeline = () => {
           href="https://empatico.buildersmovement.org/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-500 underline mt-2 inline-block"
+          className="text-blue-500  mt-2 inline-block hover:underline"
         >
           Visit Website
         </a>

@@ -75,16 +75,17 @@ export default function Sidebar() {
 
 function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
   const navItems = [
-    { href: "#hero", label: "Inicio", icon: <FaHome size={16} /> },
-    { href: "#habilidades", label: "Habilidades", icon: <FaBook size={16} /> },
+    { href: "#home", label: "Home", icon: <FaHome size={16} /> },
+    { href: "#about-me", label: "About Me", icon: <FaUser size={16} /> },
+    { href: "#skills", label: "Skills", icon: <FaBook size={16} /> },
 
     {
-      href: "#proyectos",
-      label: "Proyectos",
+      href: "#projects",
+      label: "Projects",
       icon: <FaFolderOpen size={16} />,
     },
-    { href: "#sobre-mi", label: "Sobre Mí", icon: <FaUser size={16} /> },
-    { href: "#contacto", label: "Contacto", icon: <FaComments size={16} /> },
+
+    { href: "#contact", label: "Contact", icon: <FaComments size={16} /> },
   ];
 
   const [activeHref, setActiveHref] = useState<string>("");
@@ -119,7 +120,7 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
           className="text-sm text-blue-500 mb-6 text-center cursor-pointer hover:underline"
           onClick={launchConfetti}
         >
-          Desarrollador Frontend
+          Frontend Developer
         </p>
 
         {/* Navegación */}
@@ -146,23 +147,26 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
       </div>
 
       {/* Footer con redes */}
-      <footer className="text-center text-sm space-y-4">
+      <footer className="text-center mb-5 text-sm space-y-4">
         <div className="flex justify-center gap-4">
           <a
-            href="https://github.com/tuusuario"
+            href="https://github.com/Mirko-Perez"
             target="_blank"
             className="hover:text-blue-500"
           >
             <FaGithub size={20} />
           </a>
           <a
-            href="https://linkedin.com/in/tuusuario"
+            href="https://www.linkedin.com/in/mirko-perez-/"
             target="_blank"
             className="hover:text-blue-500"
           >
             <FaLinkedin size={20} />
           </a>
-          <a href="mailto:tuemail@example.com" className="hover:text-blue-500">
+          <a
+            href="mailto:mirkoluisperez@gmail.com"
+            className="hover:text-blue-500"
+          >
             <FaEnvelope size={20} />
           </a>
         </div>

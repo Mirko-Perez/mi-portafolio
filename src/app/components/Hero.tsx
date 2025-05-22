@@ -6,7 +6,7 @@ import ParticlesBackground from "./ParticlesBackground";
 export default function Hero() {
   return (
     <section
-      id="hero"
+      id="home"
       aria-label="Sección principal de presentación"
       className="relative h-screen flex flex-col justify-center items-center text-center px-4 bg-white overflow-hidden"
     >

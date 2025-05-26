@@ -1,5 +1,5 @@
 // layout.tsx
-"use client";
+
 import { Providers } from "./providers/providers";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -12,6 +12,39 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+export const metadata = {
+  title: "Mirko Perez | Frontend Developer",
+  description:
+    "Frontend Developer portfolio of Mirko Perez, showcasing skills in React, Next.js, and modern web development.",
+  icons: {
+    icon: "/mp-icon.png",
+  },
+  openGraph: {
+    title: "Mirko Perez | Frontend Developer",
+    description:
+      "Explore my work, projects and frontend experience with modern tools like React, TypeScript, and Laravel.",
+    url: "https://mirko-perez.netlify.app",
+    siteName: "Mirko Perez Portfolio",
+    images: [
+      {
+        url: "/portfolio-img.png",
+        width: 1200,
+        height: 630,
+        alt: "Mirko Perez Portfolio Preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mirko Perez | Frontend Developer",
+    description:
+      "Frontend Developer Portfolio - React, Next.js, Laravel, Tailwind and more.",
+    images: ["/portfolio-img.png"],
+  },
+};
 
 export default function RootLayout({
   children,

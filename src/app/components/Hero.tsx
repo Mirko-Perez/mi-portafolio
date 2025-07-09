@@ -85,7 +85,7 @@ export default function Hero() {
           Contact Me
         </a>
         <a
-          href="https://drive.google.com/file/d/1XeCSuiYFQCKsAEa3cfUntfdqH58ZmQYo/view?usp=sharing"
+          href="https://drive.google.com/file/d/1rCld5MhaBLN929l5S_OLIhL3Q7BaElu-/view?usp=sharing"
           target="_blank"
           className="
             cursor-pointer

@@ -148,7 +148,7 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
             });
           }}
         >
-          Frontend Developer
+          Software Developer
         </p>
 
         {/* Navegación */}

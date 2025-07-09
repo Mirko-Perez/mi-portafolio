@@ -22,7 +22,7 @@ export default function HomePage() {
                 About Me
               </h2>
               <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-                {`Front End Developer with 3 years of experience building interactive and engaging user interfaces. I enjoy working in dynamic, multidisciplinary teams, contributing innovative and collaborative solutions.
+                {`Software Developer with 3 years of experience building interactive and engaging user interfaces. I enjoy working in dynamic, multidisciplinary teams, contributing innovative and collaborative solutions.
 
 I excel at transforming creative designs into clean, efficient code using HTML, CSS, and JavaScript, as well as modern frameworks like React and Next.js.
 

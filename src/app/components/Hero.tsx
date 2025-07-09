@@ -49,7 +49,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
       >
-        Frontend Developer
+        Software Developer
       </motion.h2>
 
       <motion.p
@@ -85,7 +85,7 @@ export default function Hero() {
           Contact Me
         </a>
         <a
-          href="https://drive.google.com/file/d/1_1GbB8oTPH8aR6M4ydsOImUwtnESIEkw/view?usp=sharing"
+          href="https://drive.google.com/file/d/1XeCSuiYFQCKsAEa3cfUntfdqH58ZmQYo/view?usp=sharing"
           target="_blank"
           className="
             cursor-pointer

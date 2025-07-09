@@ -54,7 +54,7 @@ I have solid experience integrating APIs and optimizing web performance. Current
                   Resistencia, Chaco
                 </p>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Systems Engineering (2017 - 2021, incomplete)
+                  Systems Engineering (2017 - 2020, incomplete)
                 </p>
               </div>
             </div>

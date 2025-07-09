@@ -111,7 +111,7 @@ const ProjectsTimeline = () => {
       >
         <h3 className="vertical-timeline-element-title">Skybrary</h3>
         <h4 className="vertical-timeline-element-subtitle">
-          42mate – SSR. Software Developer
+          42mate – Frontend Developer
         </h4>
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
           Reading Is Fundamental – Digital Library for Children

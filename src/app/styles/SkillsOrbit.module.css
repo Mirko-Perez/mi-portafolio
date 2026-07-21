@@ -1,25 +1,25 @@
 .wrapper {
   position: relative;
   width: 100%;
-  min-height: 350px; /* en lugar de height fija */
+  min-height: 600px; /* en lugar de height fija */
   height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  perspective: 1200px;
+  perspective: 1600px;
   overflow: visible; /* evitar que se corte en móviles */
 }
 
 .inner {
   position: relative;
-  width: 350px;
-  height: 350px;
+  width: 560px;
+  height: 560px;
   animation: rotateOrbit 25s linear infinite;
   transform-style: preserve-3d;
 }
 
 .cardCircle {
-  --radius: 240px;
+  --radius: 480px;
   --angle: calc(360deg / var(--quantity));
   position: absolute;
   top: 50%;
@@ -79,6 +79,7 @@
 @media (max-width: 640px) {
   .wrapper {
     height: 350px;
+    perspective: 1200px;
   }
 
   .inner {

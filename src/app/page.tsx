@@ -22,11 +22,11 @@ export default function HomePage() {
                 About Me
               </h2>
               <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-                {`Software Developer with 3 years of experience building interactive and engaging user interfaces. I enjoy working in dynamic, multidisciplinary teams, contributing innovative and collaborative solutions.
+                {`Full Stack Software Engineer with 4+ years of experience building scalable web applications and enterprise systems. I enjoy working in dynamic, multidisciplinary teams, contributing innovative and collaborative solutions.
 
-I excel at transforming creative designs into clean, efficient code using HTML, CSS, and JavaScript, as well as modern frameworks like React and Next.js.
+I excel at building clean, maintainable software using Ruby on Rails, Node.js, React, PostgreSQL, and Docker, with a focus on clean architecture and system integrations.
 
-I have solid experience integrating APIs and optimizing web performance. Currently, I am seeking a new opportunity where I can contribute my knowledge and continue growing professionally.`}
+I have solid experience integrating APIs, automating business workflows, and adopting AI-assisted development practices. Currently, I am seeking a new opportunity where I can contribute my knowledge and continue growing professionally.`}
               </p>
             </div>
           </div>
@@ -43,8 +43,8 @@ I have solid experience integrating APIs and optimizing web performance. Current
                   Teclab Instituto Técnico Superior
                 </p>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Técnico Superior en Programación (Started 2024, currently
-                  studying)
+                  Técnico Superior en Programación – Buenos Aires, Argentina
+                  (03/2024 – 01/2026)
                 </p>
               </div>
 

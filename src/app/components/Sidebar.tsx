@@ -199,7 +199,7 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
             <FaEnvelope size={20} />
           </a>
         </div>
-        <p>&copy; 2025 Mirko Perez</p>
+        <p>&copy; 2026 Mirko Perez</p>
       </footer>
     </>
   );

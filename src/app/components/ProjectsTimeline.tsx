@@ -8,6 +8,7 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import { FaReact, FaLaravel, FaPhp } from "react-icons/fa";
+import { SiRubyonrails } from "react-icons/si";
 
 const ProjectsTimeline = () => {
   const { resolvedTheme } = useTheme();
@@ -37,6 +38,104 @@ const ProjectsTimeline = () => {
 
   return (
     <VerticalTimeline lineColor={lineColor}>
+      <VerticalTimelineElement
+        className="vertical-timeline-element--work"
+        date="10/2025 – Present"
+        iconStyle={{ background: "#CC0000", color: "#fff" }}
+        icon={<SiRubyonrails />}
+        contentStyle={contentStyle}
+        contentArrowStyle={contentArrowStyle}
+      >
+        <h3 className="vertical-timeline-element-title">
+          Huemul ERP &amp; CRM Integration
+        </h3>
+        <h4 className="vertical-timeline-element-subtitle">
+          Techsed – SSR Full Stack · Contractor
+        </h4>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+          La Plata, Buenos Aires
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-4">
+          {["Ruby on Rails", "React", "PostgreSQL", "Odoo", "REST APIs"].map(
+            (tech) => (
+              <span
+                key={tech}
+                className="px-3 py-1 text-sm rounded-full border border-gray-700 dark:border-gray-300 text-gray-800 dark:text-white bg-white dark:bg-gray-800"
+              >
+                {tech}
+              </span>
+            )
+          )}
+        </div>
+
+        <p className="mb-2">
+          Develop and maintain enterprise applications using Ruby on Rails,
+          React, and PostgreSQL, contributing to system integrations, backend
+          services, and scalable business solutions throughout the software
+          development lifecycle.
+        </p>
+
+        <p className="mb-2">
+          <strong>Personal Achievements:</strong>
+        </p>
+        <ul className="list-disc list-inside mb-2">
+          <li>
+            Contributed to the integration of two CRM platforms by developing
+            backend services, REST APIs, and data migration workflows.
+          </li>
+          <li>
+            Developed and maintained enterprise features for the Huemul ERP
+            platform using Ruby on Rails, React, and PostgreSQL.
+          </li>
+          <li>
+            Integrated the platform with Odoo to automate business processes
+            and improve operational efficiency.
+          </li>
+          <li>
+            Integrated AI-assisted development workflows using MCP,
+            structured skills/specs, and contextual knowledge management
+            tools to accelerate software delivery and improve code quality.
+          </li>
+        </ul>
+      </VerticalTimelineElement>
+
+      <VerticalTimelineElement
+        className="vertical-timeline-element--work"
+        date="07/2025 – 10/2025"
+        iconStyle={{ background: "#61DBFB", color: "#fff" }}
+        icon={<FaReact />}
+        contentStyle={contentStyle}
+        contentArrowStyle={contentArrowStyle}
+      >
+        <h3 className="vertical-timeline-element-title">
+          FutboLink Platform Redesign
+        </h3>
+        <h4 className="vertical-timeline-element-subtitle">
+          FutboLink – SSR Full Stack · Contractor
+        </h4>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+          Lecce, Apulia, Italia
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-4">
+          {["React", "Next.js", "Tailwind CSS"].map((tech) => (
+            <span
+              key={tech}
+              className="px-3 py-1 text-sm rounded-full border border-gray-700 dark:border-gray-300 text-gray-800 dark:text-white bg-white dark:bg-gray-800"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <p className="mb-2">
+          Led the technical redesign of the company&apos;s web platform,
+          driving the migration toward a more maintainable architecture and a
+          mobile-first user experience.
+        </p>
+      </VerticalTimelineElement>
+
       <VerticalTimelineElement
         className="vertical-timeline-element--work"
         date="2024 – 2025"

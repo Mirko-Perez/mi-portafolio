@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/app/components/Sidebar";
 import DarkModeToggle from "@/app/components/DarkModeToggle";
+import LanguageToggle from "@/app/components/LanguageToggle";
 import PageWrapper from "@/app/providers/PageWrapper";
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -66,11 +67,12 @@ export default function RootLayout({
           <div className="flex flex-col flex-1 ml-0 md:ml-64">
             <header
               className="
-      fixed top-0 left-0 md:left-64 right-0 h-16 flex justify-end p-4
+      fixed top-0 left-0 md:left-64 right-0 h-16 flex justify-end items-center gap-2 p-4
       border-b border-gray-200 dark:border-gray-800
       bg-[var(--background)]/70 backdrop-blur-md z-20
     "
             >
+              <LanguageToggle />
               <DarkModeToggle />
             </header>
 

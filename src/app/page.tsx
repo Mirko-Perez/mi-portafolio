@@ -1,3 +1,6 @@
+"use client";
+
+import { useLanguage } from "@/app/i18n/LanguageProvider";
 import SkillsOrbit from "@/app/components/SkillsOrbit";
 import Hero from "@/app/components/Hero";
 import ProjectsTimeline from "./components/ProjectsTimeline";
@@ -6,6 +9,7 @@ import WaveSeparator from "./components/WaveSeparator";
 import ContactForm from "./components/ContactForm";
 
 export default function HomePage() {
+  const { t } = useLanguage();
   return (
     <>
       <Hero />
@@ -19,14 +23,10 @@ export default function HomePage() {
           <div className="max-w-md w-full">
             <div className="rounded-2xl border p-6 shadow-md dark:bg-slate-800 dark:border-slate-600 bg-white">
               <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
-                About Me
+                {t.about.title}
               </h2>
               <p className="text-base text-gray-700 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-                {`Full Stack Software Engineer with 4+ years of experience building scalable web applications and enterprise systems. I enjoy working in dynamic, multidisciplinary teams, contributing innovative and collaborative solutions.
-
-I excel at building clean, maintainable software using Ruby on Rails, Node.js, React, PostgreSQL, and Docker, with a focus on clean architecture and system integrations.
-
-I have solid experience integrating APIs, automating business workflows, and adopting AI-assisted development practices. Currently, I am seeking a new opportunity where I can contribute my knowledge and continue growing professionally.`}
+                {t.about.body}
               </p>
             </div>
           </div>
@@ -35,26 +35,24 @@ I have solid experience integrating APIs, automating business workflows, and ado
           <div className="max-w-md w-full">
             <div className="rounded-2xl border p-6 shadow-md dark:bg-slate-800 dark:border-slate-600 bg-white">
               <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
-                Education 🎓
+                {t.about.educationTitle}
               </h3>
 
               <div className="mb-4">
                 <p className="text-sm text-gray-700 dark:text-gray-300 font-semibold">
-                  Teclab Instituto Técnico Superior
+                  {t.about.teclabName}
                 </p>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Técnico Superior en Programación – Buenos Aires, Argentina
-                  (03/2024 – 01/2026)
+                  {t.about.teclabDegree}
                 </p>
               </div>
 
               <div>
                 <p className="text-sm text-gray-700 dark:text-gray-300 font-semibold">
-                  Universidad Tecnológica Nacional - Facultad Regional
-                  Resistencia, Chaco
+                  {t.about.utnName}
                 </p>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
-                  Systems Engineering (2017 - 2020, incomplete)
+                  {t.about.utnDegree}
                 </p>
               </div>
             </div>
@@ -66,11 +64,10 @@ I have solid experience integrating APIs, automating business workflows, and ado
       <FadeInWhenVisible>
         <section id="skills" className="text-center py-20">
           <h2 className="text-3xl md:text-4xl font-extrabold mb-2 text-foreground tracking-tight">
-            Technologies & Tools
+            {t.skills.title}
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
-            {`These are the technologies and tools I've worked with to build
-            scalable and performant web applications.`}
+            {t.skills.subtitle}
           </p>
           <SkillsOrbit />
         </section>
@@ -81,7 +78,7 @@ I have solid experience integrating APIs, automating business workflows, and ado
       <FadeInWhenVisible>
         <section id="projects" className="py-20 max-w-6xl mx-auto">
           <h2 className="text-3xl font-semibold mb-8 text-center">
-            Experience
+            {t.experience.title}
           </h2>
           <div className="flex justify-center">
             <ProjectsTimeline />

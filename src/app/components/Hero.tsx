@@ -3,12 +3,14 @@
 import { motion } from "framer-motion";
 import ParticlesBackground from "./ParticlesBackground";
 import { FaChevronDown } from "react-icons/fa";
+import { useLanguage } from "@/app/i18n/LanguageProvider";
 
 export default function Hero() {
+  const { t } = useLanguage();
   return (
     <section
       id="home"
-      aria-label="Main introduction section"
+      aria-label={t.hero.sectionAria}
       className="relative h-screen flex flex-col justify-center items-center text-center bg-white overflow-hidden"
     >
       <motion.h2
@@ -17,7 +19,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1 }}
       >
-        Hello!
+        {t.hero.hello}
         <motion.span
           animate={{ rotate: [0, 15, -10, 15, 0] }}
           transition={{
@@ -40,7 +42,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        {`I'm Mirko Perez`}
+        {t.hero.name}
       </motion.h1>
 
       <motion.h2
@@ -49,7 +51,7 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
       >
-        Full Stack Developer
+        {t.hero.title}
       </motion.h2>
 
       <motion.p
@@ -58,7 +60,7 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
       >
-        Passionate about building modern, fast, and accessible web experiences.
+        {t.hero.tagline}
       </motion.p>
 
       <motion.div
@@ -82,10 +84,10 @@ export default function Hero() {
             dark:hover:bg-gray-200
           "
         >
-          Contact Me
+          {t.hero.contactMe}
         </a>
         <a
-          href="https://drive.google.com/file/d/1t1PmO9c5xyK959qKpWa4i23U6OM_M_u7/view?usp=sharing"
+          href="https://drive.google.com/file/d/1Kqj0Ls8pC4RoM5UqGuAhuOlokhxual19/view?usp=sharing"
           target="_blank"
           className="
             cursor-pointer
@@ -100,7 +102,7 @@ export default function Hero() {
             dark:hover:bg-gray-200
           "
         >
-          CV
+          {t.hero.cv}
         </a>
       </motion.div>
 
@@ -114,7 +116,7 @@ export default function Hero() {
             aboutSection.scrollIntoView({ behavior: "smooth" });
           }
         }}
-        aria-label="Scroll to About Me section"
+        aria-label={t.hero.scrollAria}
       >
         <FaChevronDown size={42} />
       </motion.div>

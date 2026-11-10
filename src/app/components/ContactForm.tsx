@@ -4,9 +4,11 @@ import React, { useState } from "react";
 import { useTheme } from "next-themes";
 import emailjs from "@emailjs/browser";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
+import { useLanguage } from "@/app/i18n/LanguageProvider";
 
 export default function ContactSection() {
   const { theme } = useTheme();
+  const { t } = useLanguage();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -14,7 +16,7 @@ export default function ContactSection() {
     message: "",
   });
   const [loading, setLoading] = useState(false);
-  const [resultMsg, setResultMsg] = useState<string | null>(null);
+  const [resultMsg, setResultMsg] = useState<"success" | "error" | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -34,11 +36,11 @@ export default function ContactSection() {
         formData,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
-      setResultMsg("Message sent successfully!");
+      setResultMsg("success");
       setFormData({ name: "", email: "", message: "" });
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
-      setResultMsg("Failed to send the message. Please try again later.");
+      setResultMsg("error");
     } finally {
       setLoading(false);
     }
@@ -48,10 +50,9 @@ export default function ContactSection() {
     <>
       {/* Left message */}
       <div className="md:w-1/2 flex flex-col justify-start">
-        <h2 className="text-3xl font-bold mb-4 text-foreground">{`Contact`}</h2>
+        <h2 className="text-3xl font-bold mb-4 text-foreground">{t.contact.title}</h2>
         <p className="text-lg text-muted-foreground">
-          {`Have a question or want to work together? Fill out the form and I'll
-          get back to you as soon as possible.`}
+          {t.contact.intro}
         </p>
 
         <footer className="text-center mb-5 text-sm space-y-4">
@@ -92,7 +93,7 @@ export default function ContactSection() {
         `}
       >
         <label className="block mb-4">
-          <span className="block mb-1 font-medium">Name</span>
+          <span className="block mb-1 font-medium">{t.contact.name}</span>
           <input
             type="text"
             name="name"
@@ -105,12 +106,12 @@ export default function ContactSection() {
                   ? "bg-slate-800 border-slate-600 text-gray-200 placeholder-gray-400 focus:border-slate-400"
                   : "bg-white border-gray-300 text-black placeholder-gray-600 focus:border-slate-600"
               }`}
-            placeholder="Your name"
+            placeholder={t.contact.namePlaceholder}
           />
         </label>
 
         <label className="block mb-4">
-          <span className="block mb-1 font-medium">Email</span>
+          <span className="block mb-1 font-medium">{t.contact.email}</span>
           <input
             type="email"
             name="email"
@@ -128,7 +129,7 @@ export default function ContactSection() {
         </label>
 
         <label className="block mb-6">
-          <span className="block mb-1 font-medium">Message</span>
+          <span className="block mb-1 font-medium">{t.contact.message}</span>
           <textarea
             name="message"
             value={formData.message}
@@ -141,7 +142,7 @@ export default function ContactSection() {
                   ? "bg-slate-800 border-slate-600 text-gray-200 placeholder-gray-400 focus:border-slate-400"
                   : "bg-white border-gray-300 text-black placeholder-gray-600 focus:border-slate-600"
               }`}
-            placeholder="Write your message here..."
+            placeholder={t.contact.messagePlaceholder}
           />
         </label>
 
@@ -155,18 +156,18 @@ export default function ContactSection() {
                 : "bg-slate-600 hover:bg-slate-700 dark:bg-slate-500 dark:hover:bg-slate-600"
             }`}
         >
-          {loading ? "Sending..." : "Send Message"}
+          {loading ? t.contact.sending : t.contact.send}
         </button>
 
         {resultMsg && (
           <p
             className={`mt-4 text-center font-medium ${
-              resultMsg.includes("successfully")
+              resultMsg === "success"
                 ? "text-green-500"
                 : "text-red-500"
             }`}
           >
-            {resultMsg}
+            {resultMsg === "success" ? t.contact.success : t.contact.error}
           </p>
         )}
       </form>

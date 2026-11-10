@@ -9,9 +9,53 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import { FaReact, FaLaravel, FaPhp } from "react-icons/fa";
 import { SiRubyonrails } from "react-icons/si";
+import { useLanguage } from "@/app/i18n/LanguageProvider";
+
+const items = [
+  {
+    key: "huemul",
+    date: "10/2025 –",
+    current: true,
+    color: "#CC0000",
+    icon: <SiRubyonrails />,
+    techs: ["Ruby on Rails", "React", "PostgreSQL", "Odoo", "REST APIs"],
+  },
+  {
+    key: "futbolink",
+    date: "07/2025 – 10/2025",
+    color: "#61DBFB",
+    icon: <FaReact />,
+    techs: ["React", "Next.js", "Tailwind CSS"],
+  },
+  {
+    key: "fibrazo",
+    date: "2024 – 2025",
+    color: "#8892BF",
+    icon: <FaPhp />,
+    techs: ["Laravel", "PHP", "jQuery", "Blade", "Bootstrap", "MySQL"],
+    url: "https://www.fibrazo.com.ar/",
+  },
+  {
+    key: "skybrary",
+    date: "2023 – 2024",
+    color: "#F05340",
+    icon: <FaLaravel />,
+    techs: ["React", "TypeScript", "Sass", "Laravel", "Next.js"],
+    url: "https://www.skybrary.org/",
+  },
+  {
+    key: "empatico",
+    date: "2022 – 2024",
+    color: "#61DBFB",
+    icon: <FaReact />,
+    techs: ["Next.js", "Laravel", "React", "Sass", "MySQL", "Chakra UI"],
+    url: "https://empatico.buildersmovement.org/",
+  },
+] as const;
 
 const ProjectsTimeline = () => {
   const { resolvedTheme } = useTheme();
+  const { t } = useLanguage();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -38,287 +82,72 @@ const ProjectsTimeline = () => {
 
   return (
     <VerticalTimeline lineColor={lineColor}>
-      <VerticalTimelineElement
-        className="vertical-timeline-element--work"
-        date="10/2025 – Present"
-        iconStyle={{ background: "#CC0000", color: "#fff" }}
-        icon={<SiRubyonrails />}
-        contentStyle={contentStyle}
-        contentArrowStyle={contentArrowStyle}
-      >
-        <h3 className="vertical-timeline-element-title">
-          Huemul ERP &amp; CRM Integration
-        </h3>
-        <h4 className="vertical-timeline-element-subtitle">
-          Techsed – SSR Full Stack · Contractor
-        </h4>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-          La Plata, Buenos Aires
-        </p>
+      {items.map((item) => {
+        const project = t.experience.projects[item.key];
+        const url = "url" in item ? item.url : undefined;
+        const date =
+          "current" in item
+            ? `${item.date} ${t.experience.present}`
+            : item.date;
+        return (
+          <VerticalTimelineElement
+            key={item.key}
+            className="vertical-timeline-element--work"
+            date={date}
+            iconStyle={{ background: item.color, color: "#fff" }}
+            icon={item.icon}
+            contentStyle={contentStyle}
+            contentArrowStyle={contentArrowStyle}
+          >
+            <h3 className="vertical-timeline-element-title">
+              {project.title}
+            </h3>
+            <h4 className="vertical-timeline-element-subtitle">
+              {project.subtitle}
+            </h4>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+              {project.location}
+            </p>
 
-        <div className="flex flex-wrap gap-2 mb-4">
-          {["Ruby on Rails", "React", "PostgreSQL", "Odoo", "REST APIs"].map(
-            (tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 text-sm rounded-full border border-gray-700 dark:border-gray-300 text-gray-800 dark:text-white bg-white dark:bg-gray-800"
+            <div className="flex flex-wrap gap-2 mb-4">
+              {item.techs.map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3 py-1 text-sm rounded-full border border-gray-700 dark:border-gray-300 text-gray-800 dark:text-white bg-white dark:bg-gray-800"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <p className="mb-2">{project.description}</p>
+
+            {"achievements" in project && project.achievements && (
+              <>
+                <p className="mb-2">
+                  <strong>{t.experience.achievements}</strong>
+                </p>
+                <ul className="list-disc list-inside mb-2">
+                  {project.achievements.map((a) => (
+                    <li key={a}>{a}</li>
+                  ))}
+                </ul>
+              </>
+            )}
+
+            {url && (
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 mt-2 hover:underline inline-block"
               >
-                {tech}
-              </span>
-            )
-          )}
-        </div>
-
-        <p className="mb-2">
-          Develop and maintain enterprise applications using Ruby on Rails,
-          React, and PostgreSQL, contributing to system integrations, backend
-          services, and scalable business solutions throughout the software
-          development lifecycle.
-        </p>
-
-        <p className="mb-2">
-          <strong>Personal Achievements:</strong>
-        </p>
-        <ul className="list-disc list-inside mb-2">
-          <li>
-            Contributed to the integration of two CRM platforms by developing
-            backend services, REST APIs, and data migration workflows.
-          </li>
-          <li>
-            Developed and maintained enterprise features for the Huemul ERP
-            platform using Ruby on Rails, React, and PostgreSQL.
-          </li>
-          <li>
-            Integrated the platform with Odoo to automate business processes
-            and improve operational efficiency.
-          </li>
-          <li>
-            Integrated AI-assisted development workflows using MCP,
-            structured skills/specs, and contextual knowledge management
-            tools to accelerate software delivery and improve code quality.
-          </li>
-        </ul>
-      </VerticalTimelineElement>
-
-      <VerticalTimelineElement
-        className="vertical-timeline-element--work"
-        date="07/2025 – 10/2025"
-        iconStyle={{ background: "#61DBFB", color: "#fff" }}
-        icon={<FaReact />}
-        contentStyle={contentStyle}
-        contentArrowStyle={contentArrowStyle}
-      >
-        <h3 className="vertical-timeline-element-title">
-          FutboLink Platform Redesign
-        </h3>
-        <h4 className="vertical-timeline-element-subtitle">
-          FutboLink – SSR Full Stack · Contractor
-        </h4>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-          Lecce, Apulia, Italia
-        </p>
-
-        <div className="flex flex-wrap gap-2 mb-4">
-          {["React", "Next.js", "Tailwind CSS"].map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1 text-sm rounded-full border border-gray-700 dark:border-gray-300 text-gray-800 dark:text-white bg-white dark:bg-gray-800"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        <p className="mb-2">
-          Led the technical redesign of the company&apos;s web platform,
-          driving the migration toward a more maintainable architecture and a
-          mobile-first user experience.
-        </p>
-      </VerticalTimelineElement>
-
-      <VerticalTimelineElement
-        className="vertical-timeline-element--work"
-        date="2024 – 2025"
-        iconStyle={{ background: "#8892BF", color: "#fff" }}
-        icon={<FaPhp />}
-        contentStyle={contentStyle}
-        contentArrowStyle={contentArrowStyle}
-      >
-        <h3 className="vertical-timeline-element-title">Fibrazo Admin Panel</h3>
-        <h4 className="vertical-timeline-element-subtitle">
-          42mate – SSR. Software Developer
-        </h4>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-          Fibrazo – Colombian Internet Service Provider
-        </p>
-
-        <div className="flex flex-wrap gap-2 mb-4">
-          {["Laravel", "PHP", "jQuery", "Blade", "Bootstrap", "MySQL"].map(
-            (tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 text-sm rounded-full border border-gray-700 dark:border-gray-300 text-gray-800 dark:text-white bg-white dark:bg-gray-800"
-              >
-                {tech}
-              </span>
-            )
-          )}
-        </div>
-
-        <p className="mb-2">
-          Fibrazo is a Colombian internet service provider offering high-speed
-          fiber optic plans in various regions. The admin panel supports
-          internal operations such as client management, messaging, and
-          infrastructure control.
-        </p>
-
-        <p className="mb-2">
-          <strong>Personal Achievements:</strong>
-        </p>
-        <ul className="list-disc list-inside mb-2">
-          <li>
-            Improved admin panel interfaces using Laravel Blade templates and
-            jQuery.
-          </li>
-          <li>
-            Integrated automated message delivery using Laravel task scheduling
-            (cron jobs).
-          </li>
-          <li>
-            Collaborated with the backend team to enhance internal workflows and
-            user messaging tools.
-          </li>
-        </ul>
-
-        <a
-          href="https://www.fibrazo.com.ar/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 mt-2 hover:underline inline-block"
-        >
-          Visit Website
-        </a>
-      </VerticalTimelineElement>
-
-      <VerticalTimelineElement
-        className="vertical-timeline-element--work"
-        date="2023 – 2024"
-        iconStyle={{ background: "#F05340", color: "#fff" }}
-        icon={<FaLaravel />}
-        contentStyle={contentStyle}
-        contentArrowStyle={contentArrowStyle}
-      >
-        <h3 className="vertical-timeline-element-title">Skybrary</h3>
-        <h4 className="vertical-timeline-element-subtitle">
-          42mate – SSR. Software Developer
-        </h4>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-          Reading Is Fundamental – Digital Library for Children
-        </p>
-
-        <div className="flex flex-wrap gap-2 mb-4">
-          {["React", "TypeScript", "Sass", "Laravel", "Next.js"].map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1 text-sm rounded-full border border-gray-700 dark:border-gray-300 text-gray-800 dark:text-white bg-white dark:bg-gray-800"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        <p className="mb-2">
-          Skybrary is an interactive digital library offering a vast collection
-          of eBooks and educational videos aimed at fostering a love for reading
-          among children. Accessible via web and mobile devices, it provides an
-          engaging platform for young learners.
-        </p>
-
-        <p className="mb-2">
-          <strong>Personal Achievements:</strong>
-        </p>
-        <ul className="list-disc list-inside mb-2">
-          <li>
-            Implemented code quality standards by integrating Prettier and
-            ESLint, ensuring consistent and maintainable code across the
-            development team.
-          </li>
-          <li>
-            Contributed to the migration from useContext to Redux for state
-            management, enhancing scalability and performance of the
-            application.
-          </li>
-        </ul>
-
-        <a
-          href="https://www.skybrary.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500 hover:underline mt-2 inline-block"
-        >
-          Visit Website
-        </a>
-      </VerticalTimelineElement>
-
-      <VerticalTimelineElement
-        className="vertical-timeline-element--work"
-        date="2022 – 2024"
-        iconStyle={{ background: "#61DBFB", color: "#fff" }}
-        icon={<FaReact />}
-        contentStyle={contentStyle}
-        contentArrowStyle={contentArrowStyle}
-      >
-        <h3 className="vertical-timeline-element-title">Empatico</h3>
-        <h4 className="vertical-timeline-element-subtitle">
-          42mate – JR. Frontend Developer
-        </h4>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-          Builders Movement – Global Educational Platform
-        </p>
-
-        <div className="flex flex-wrap gap-2 mb-4">
-          {["Next.js", "Laravel", "React", "Sass", "MySQL", "Chakra UI"].map(
-            (tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 text-sm rounded-full border border-gray-700 dark:border-gray-300 text-gray-800 dark:text-white bg-white dark:bg-gray-800"
-              >
-                {tech}
-              </span>
-            )
-          )}
-        </div>
-
-        <p className="mb-2">
-          Empático is a free digital platform that connects classrooms worldwide
-          to foster empathy and intercultural understanding among students.
-          Through online activities and games, it offers educators and learners
-          opportunities to engage in experiences that develop essential
-          social-emotional skills.
-        </p>
-
-        <p className="mb-2">
-          <strong>Personal Achievements:</strong>
-        </p>
-        <ul className="list-disc list-inside mb-2">
-          <li>
-            Developed and consumed RESTful APIs using Laravel and Next.js.
-          </li>
-          <li>
-            Implemented a dynamic search feature to enhance content
-            accessibility within the platform.
-          </li>
-        </ul>
-
-        <a
-          href="https://empatico.buildersmovement.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-blue-500  mt-2 inline-block hover:underline"
-        >
-          Visit Website
-        </a>
-      </VerticalTimelineElement>
+                {t.experience.visit}
+              </a>
+            )}
+          </VerticalTimelineElement>
+        );
+      })}
     </VerticalTimeline>
   );
 };

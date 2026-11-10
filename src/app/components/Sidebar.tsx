@@ -17,6 +17,7 @@ import {
   FaBook,
 } from "react-icons/fa";
 import Link from "next/link";
+import { useLanguage } from "@/app/i18n/LanguageProvider";
 
 export default function Sidebar() {
   const { theme } = useTheme();
@@ -105,12 +106,13 @@ function useActiveSection(ids: string[]) {
 }
 
 function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
+  const { t } = useLanguage();
   const navItems = [
-    { href: "home", label: "Home", icon: <FaHome size={16} /> },
-    { href: "about-me", label: "About Me", icon: <FaUser size={16} /> },
-    { href: "skills", label: "Skills", icon: <FaBook size={16} /> },
-    { href: "projects", label: "Projects", icon: <FaFolderOpen size={16} /> },
-    { href: "contact", label: "Contact", icon: <FaComments size={16} /> },
+    { href: "home", label: t.nav.home, icon: <FaHome size={16} /> },
+    { href: "about-me", label: t.nav.about, icon: <FaUser size={16} /> },
+    { href: "skills", label: t.nav.skills, icon: <FaBook size={16} /> },
+    { href: "projects", label: t.nav.projects, icon: <FaFolderOpen size={16} /> },
+    { href: "contact", label: t.nav.contact, icon: <FaComments size={16} /> },
   ];
 
   // Hook para detectar sección activa según scroll
@@ -148,7 +150,7 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
             });
           }}
         >
-          Software Developer
+          {t.role}
         </p>
 
         {/* Navegación */}

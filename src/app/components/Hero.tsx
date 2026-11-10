@@ -11,9 +11,9 @@ export default function Hero() {
     <section
       id="home"
       aria-label={t.hero.sectionAria}
-      className="relative h-screen flex flex-col justify-center items-center text-center bg-white overflow-hidden"
+      className="relative h-screen flex flex-col justify-center items-center text-center bg-background overflow-hidden"
     >
-      <motion.h2
+      <motion.p
         className="text-2xl md:text-3xl text-muted-foreground mb-2 flex items-center gap-2 z-10"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -32,7 +32,7 @@ export default function Hero() {
         >
           👋
         </motion.span>
-      </motion.h2>
+      </motion.p>
 
       <ParticlesBackground />
 

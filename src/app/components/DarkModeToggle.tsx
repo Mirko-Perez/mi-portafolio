@@ -16,7 +16,7 @@ export default function DarkModeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="rounded px-2 py-0.5 border cursor-pointer "
+      className="rounded px-2 py-0.5 border border-gray-700 dark:border-gray-300 text-sm cursor-pointer"
     >
       {theme === "dark" ? t.theme.light : t.theme.dark}
     </button>

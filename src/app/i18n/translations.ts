@@ -15,6 +15,9 @@ export type Dictionary = {
     skills: string;
     projects: string;
     contact: string;
+    label: string;
+    openMenu: string;
+    closeMenu: string;
   };
   role: string;
   theme: { light: string; dark: string };
@@ -74,6 +77,9 @@ export const translations: Record<Lang, Dictionary> = {
       skills: "Skills",
       projects: "Projects",
       contact: "Contact",
+      label: "Main navigation",
+      openMenu: "Open menu",
+      closeMenu: "Close menu",
     },
     role: "Software Developer",
     theme: { light: "☀️ Light", dark: "🌙 Dark" },
@@ -192,6 +198,9 @@ I have solid experience integrating APIs, automating business workflows, and ado
       skills: "Habilidades",
       projects: "Proyectos",
       contact: "Contacto",
+      label: "Navegación principal",
+      openMenu: "Abrir menú",
+      closeMenu: "Cerrar menú",
     },
     role: "Desarrollador de Software",
     theme: { light: "☀️ Claro", dark: "🌙 Oscuro" },

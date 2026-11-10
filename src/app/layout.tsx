@@ -1,14 +1,17 @@
 // layout.tsx
 
 import { Providers } from "./providers/providers";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Instrument_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Sidebar from "@/app/components/Sidebar";
 import DarkModeToggle from "@/app/components/DarkModeToggle";
 import LanguageToggle from "@/app/components/LanguageToggle";
 import PageWrapper from "@/app/providers/PageWrapper";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
+  subsets: ["latin"],
+});
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -59,7 +62,7 @@ export default function RootLayout({
       className="transition-colors duration-300 scroll-smooth"
     >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300 flex min-h-screen`}
+        className={`${instrumentSans.variable} ${geistMono.variable} antialiased bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300 flex min-h-screen`}
       >
         <Providers>
           <Sidebar />

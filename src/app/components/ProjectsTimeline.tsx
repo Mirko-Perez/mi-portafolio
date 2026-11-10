@@ -140,7 +140,7 @@ const ProjectsTimeline = () => {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-500 mt-2 hover:underline inline-block"
+                className="text-blue-700 dark:text-blue-400 mt-2 hover:underline inline-block"
               >
                 {t.experience.visit}
               </a>

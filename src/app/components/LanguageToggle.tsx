@@ -9,7 +9,7 @@ export default function LanguageToggle() {
     <div
       role="group"
       aria-label="Language"
-      className="rounded border flex overflow-hidden text-sm"
+      className="rounded border border-gray-700 dark:border-gray-300 flex overflow-hidden text-sm"
     >
       {(["en", "es"] as const).map((code) => (
         <button
@@ -19,7 +19,7 @@ export default function LanguageToggle() {
           className={`px-2 py-0.5 cursor-pointer uppercase ${
             lang === code
               ? "bg-black text-white dark:bg-white dark:text-black"
-              : ""
+              : "text-gray-900 dark:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800"
           }`}
         >
           {code}

@@ -21,6 +21,7 @@ import { useLanguage } from "@/app/i18n/LanguageProvider";
 
 export default function Sidebar() {
   const { theme } = useTheme();
+  const { t } = useLanguage();
   const [mounted, setMounted] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -33,6 +34,8 @@ export default function Sidebar() {
     <>
       {/* Botón hamburguesa solo en mobile */}
       <button
+        aria-label={isOpen ? t.nav.closeMenu : t.nav.openMenu}
+        aria-expanded={isOpen}
         className="fixed top-4 left-4 z-50 md:hidden text-black bg-white border-2 dark:bg-black dark:text-white p-2 rounded-full shadow"
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -141,7 +144,7 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
         <h2 className="text-xl font-bold text-center">Mirko Perez</h2>
 
         <p
-          className="text-sm text-blue-500 mb-6 text-center cursor-pointer hover:underline"
+          className="text-sm text-blue-700 dark:text-blue-400 mb-6 text-center cursor-pointer hover:underline"
           onClick={() => {
             confetti({
               particleCount: 100,
@@ -154,7 +157,7 @@ function SidebarContent({ onLinkClick }: { onLinkClick?: () => void }) {
         </p>
 
         {/* Navegación */}
-        <nav className="flex flex-col space-y-4 w-full">
+        <nav aria-label={t.nav.label} className="flex flex-col space-y-4 w-full">
           {navItems.map((item) => {
             const isActive = activeHref === item.href;
             return (

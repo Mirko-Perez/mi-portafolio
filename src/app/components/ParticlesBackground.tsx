@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes";
 import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
+import { loadSlim } from "tsparticles-slim";
 import { useCallback, useEffect, useState } from "react";
 import type { Engine } from "tsparticles-engine";
 
@@ -12,11 +12,14 @@ export default function ParticlesBackground() {
   const [options, setOptions] = useState<any>(null);
 
   const particlesInit = useCallback(async (engine: Engine) => {
-    await loadFull(engine);
+    await loadSlim(engine);
   }, []);
 
   useEffect(() => {
     const isDark = theme === "dark";
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
     setOptions({
       fullScreen: { enable: false },
       background: { color: isDark ? "#0a0a0a" : "#fff" },
@@ -28,7 +31,7 @@ export default function ParticlesBackground() {
         opacity: { value: 0.3 },
         size: { value: 3 },
         move: {
-          enable: true,
+          enable: !reduceMotion,
           speed: 1.5,
           direction: "none",
           random: true,
@@ -46,7 +49,7 @@ export default function ParticlesBackground() {
       },
       interactivity: {
         events: {
-          onHover: { enable: true, mode: "grab" },
+          onHover: { enable: !reduceMotion, mode: "grab" },
           onClick: { enable: false },
           resize: { enable: true },
         },

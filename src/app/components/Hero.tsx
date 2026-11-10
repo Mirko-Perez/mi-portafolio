@@ -87,7 +87,7 @@ export default function Hero() {
           {t.hero.contactMe}
         </a>
         <a
-          href="https://drive.google.com/file/d/1Kqj0Ls8pC4RoM5UqGuAhuOlokhxual19/view?usp=sharing"
+          href="https://drive.google.com/file/d/1tzvmsB7t7Njda7tYwEhXQFKSmGOGEPkT/view?usp=sharing"
           target="_blank"
           className="
             cursor-pointer

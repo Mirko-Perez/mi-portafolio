@@ -8,6 +8,8 @@ type Project = {
   achievements?: string[];
 };
 
+type Client = { title: string; location: string; description: string };
+
 export type Dictionary = {
   nav: {
     home: string;
@@ -39,6 +41,9 @@ export type Dictionary = {
     teclabDegree: string;
     utnName: string;
     utnDegree: string;
+    languagesTitle: string;
+    spanish: string;
+    english: string;
   };
   skills: { title: string; subtitle: string };
   experience: {
@@ -46,12 +51,16 @@ export type Dictionary = {
     present: string;
     achievements: string;
     visit: string;
+    clients: string;
     projects: {
       huemul: Project;
       futbolink: Project;
-      fibrazo: Project;
-      skybrary: Project;
-      empatico: Project;
+      mate42: Project;
+    };
+    clientProjects: {
+      fibrazo: Client;
+      skybrary: Client;
+      empatico: Client;
     };
   };
   contact: {
@@ -75,20 +84,20 @@ export const translations: Record<Lang, Dictionary> = {
       home: "Home",
       about: "About Me",
       skills: "Skills",
-      projects: "Projects",
+      projects: "Experience",
       contact: "Contact",
       label: "Main navigation",
       openMenu: "Open menu",
       closeMenu: "Close menu",
     },
-    role: "Software Developer",
+    role: "Full Stack Developer",
     theme: { light: "☀️ Light", dark: "🌙 Dark" },
     hero: {
       hello: "Hello!",
       name: "I'm Mirko Perez",
       title: "Full Stack Developer",
       tagline:
-        "Passionate about building modern, fast, and accessible web experiences.",
+        "I build scalable web apps and enterprise integrations (CRM, ERP, Odoo), with AI-assisted development workflows.",
       contactMe: "Contact Me",
       cv: "CV",
       scrollAria: "Scroll to About Me section",
@@ -108,6 +117,9 @@ I have solid experience integrating APIs, automating business workflows, and ado
       utnName:
         "Universidad Tecnológica Nacional - Facultad Regional Resistencia, Chaco",
       utnDegree: "Systems Engineering (2017 - 2020, incomplete)",
+      languagesTitle: "Languages 🌎",
+      spanish: "Spanish: native",
+      english: "English: intermediate (B1)",
     },
     skills: {
       title: "Technologies & Tools",
@@ -119,6 +131,7 @@ I have solid experience integrating APIs, automating business workflows, and ado
       present: "Present",
       achievements: "Personal Achievements:",
       visit: "Visit Website",
+      clients: "Client projects:",
       projects: {
         huemul: {
           title: "Huemul ERP & CRM Integration",
@@ -140,39 +153,38 @@ I have solid experience integrating APIs, automating business workflows, and ado
           description:
             "Led the technical redesign of the company's web platform, driving the migration toward a more maintainable architecture and a mobile-first user experience.",
         },
+        mate42: {
+          title: "42Mate",
+          subtitle: "Full Stack Developer (SSR) · promoted from Junior Frontend",
+          location: "Chaco, Argentina",
+          description:
+            "Product engineering for international clients (education, telecom), from frontend to Laravel and Odoo integrations.",
+          achievements: [
+            "Migrated a shared React component platform to Vite and standardized the codebase with ESLint and Prettier, improving performance, developer experience and review speed.",
+            "Moved global state from Context API to Redux; built features with React, Next.js and TypeScript consuming REST APIs.",
+            "Developed Laravel–Odoo backend integrations to automate business workflows; validated a React Native (Expo) proof of concept.",
+            "Promoted after delivering an admin system for EA with minimal supervision; resolved iOS/Android cross-platform issues.",
+          ],
+        },
+      },
+      clientProjects: {
         fibrazo: {
           title: "Fibrazo Admin Panel",
-          subtitle: "42mate – SSR. Software Developer",
           location: "Fibrazo – Colombian Internet Service Provider",
           description:
-            "Fibrazo is a Colombian internet service provider offering high-speed fiber optic plans in various regions. The admin panel supports internal operations such as client management, messaging, and infrastructure control.",
-          achievements: [
-            "Improved admin panel interfaces using Laravel Blade templates and jQuery.",
-            "Integrated automated message delivery using Laravel task scheduling (cron jobs).",
-            "Collaborated with the backend team to enhance internal workflows and user messaging tools.",
-          ],
+            "Admin panel for client management, messaging and infrastructure control, with Laravel Blade, jQuery and scheduled message delivery.",
         },
         skybrary: {
           title: "Skybrary",
-          subtitle: "42mate – SSR. Software Developer",
           location: "Reading Is Fundamental – Digital Library for Children",
           description:
-            "Skybrary is an interactive digital library offering a vast collection of eBooks and educational videos aimed at fostering a love for reading among children. Accessible via web and mobile devices, it provides an engaging platform for young learners.",
-          achievements: [
-            "Implemented code quality standards by integrating Prettier and ESLint, ensuring consistent and maintainable code across the development team.",
-            "Contributed to the migration from useContext to Redux for state management, enhancing scalability and performance of the application.",
-          ],
+            "Interactive digital library of eBooks and educational videos for children, on web and mobile.",
         },
         empatico: {
           title: "Empatico",
-          subtitle: "42mate – JR. Frontend Developer",
           location: "Builders Movement – Global Educational Platform",
           description:
-            "Empático is a free digital platform that connects classrooms worldwide to foster empathy and intercultural understanding among students. Through online activities and games, it offers educators and learners opportunities to engage in experiences that develop essential social-emotional skills.",
-          achievements: [
-            "Developed and consumed RESTful APIs using Laravel and Next.js.",
-            "Implemented a dynamic search feature to enhance content accessibility within the platform.",
-          ],
+            "Free platform connecting classrooms worldwide to build empathy; REST APIs with Laravel and Next.js and a dynamic content search.",
         },
       },
     },
@@ -196,20 +208,20 @@ I have solid experience integrating APIs, automating business workflows, and ado
       home: "Inicio",
       about: "Sobre mí",
       skills: "Habilidades",
-      projects: "Proyectos",
+      projects: "Experiencia",
       contact: "Contacto",
       label: "Navegación principal",
       openMenu: "Abrir menú",
       closeMenu: "Cerrar menú",
     },
-    role: "Desarrollador de Software",
+    role: "Desarrollador Full Stack",
     theme: { light: "☀️ Claro", dark: "🌙 Oscuro" },
     hero: {
       hello: "¡Hola!",
       name: "Soy Mirko Perez",
       title: "Desarrollador Full Stack",
       tagline:
-        "Apasionado por crear experiencias web modernas, rápidas y accesibles.",
+        "Creo aplicaciones web escalables e integraciones empresariales (CRM, ERP, Odoo), con flujos de desarrollo asistido por IA.",
       contactMe: "Contáctame",
       cv: "CV",
       scrollAria: "Ir a la sección Sobre mí",
@@ -229,6 +241,9 @@ Tengo sólida experiencia integrando APIs, automatizando flujos de negocio y ado
       utnName:
         "Universidad Tecnológica Nacional - Facultad Regional Resistencia, Chaco",
       utnDegree: "Ingeniería en Sistemas (2017 - 2020, incompleta)",
+      languagesTitle: "Idiomas 🌎",
+      spanish: "Español: nativo",
+      english: "Inglés: intermedio (B1)",
     },
     skills: {
       title: "Tecnologías y Herramientas",
@@ -240,6 +255,7 @@ Tengo sólida experiencia integrando APIs, automatizando flujos de negocio y ado
       present: "Actualidad",
       achievements: "Logros personales:",
       visit: "Visitar sitio web",
+      clients: "Proyectos para clientes:",
       projects: {
         huemul: {
           title: "Integración ERP y CRM Huemul",
@@ -261,39 +277,38 @@ Tengo sólida experiencia integrando APIs, automatizando flujos de negocio y ado
           description:
             "Lideré el rediseño técnico de la plataforma web de la empresa, impulsando la migración hacia una arquitectura más mantenible y una experiencia de usuario mobile-first.",
         },
+        mate42: {
+          title: "42Mate",
+          subtitle: "Full Stack Developer (SSR) · ascendido desde Frontend Junior",
+          location: "Chaco, Argentina",
+          description:
+            "Desarrollo de producto para clientes internacionales (educación, telecomunicaciones), desde frontend hasta Laravel e integraciones con Odoo.",
+          achievements: [
+            "Migré una plataforma compartida de componentes React a Vite y estandaricé el código con ESLint y Prettier, mejorando el rendimiento, la experiencia de desarrollo y la velocidad de revisión.",
+            "Pasé el estado global de Context API a Redux; desarrollé funcionalidades con React, Next.js y TypeScript consumiendo APIs REST.",
+            "Desarrollé integraciones backend Laravel–Odoo para automatizar flujos de negocio; validé una prueba de concepto en React Native (Expo).",
+            "Fui ascendido tras entregar un sistema de administración para EA con mínima supervisión; resolví problemas multiplataforma en iOS y Android.",
+          ],
+        },
+      },
+      clientProjects: {
         fibrazo: {
           title: "Panel de administración Fibrazo",
-          subtitle: "42mate – Desarrollador de Software SSR",
           location: "Fibrazo – Proveedor de internet colombiano",
           description:
-            "Fibrazo es un proveedor de internet colombiano que ofrece planes de fibra óptica de alta velocidad en varias regiones. El panel de administración da soporte a operaciones internas como gestión de clientes, mensajería y control de infraestructura.",
-          achievements: [
-            "Mejoré las interfaces del panel de administración con plantillas Laravel Blade y jQuery.",
-            "Integré el envío automático de mensajes con tareas programadas de Laravel (cron jobs).",
-            "Colaboré con el equipo backend para mejorar los flujos internos y las herramientas de mensajería a usuarios.",
-          ],
+            "Panel de administración para gestión de clientes, mensajería y control de infraestructura, con Laravel Blade, jQuery y envío programado de mensajes.",
         },
         skybrary: {
           title: "Skybrary",
-          subtitle: "42mate – Desarrollador de Software SSR",
           location: "Reading Is Fundamental – Biblioteca digital para niños",
           description:
-            "Skybrary es una biblioteca digital interactiva con una gran colección de eBooks y videos educativos orientados a fomentar el amor por la lectura en los niños. Accesible desde web y dispositivos móviles, ofrece una plataforma atractiva para los más pequeños.",
-          achievements: [
-            "Implementé estándares de calidad de código integrando Prettier y ESLint, logrando un código consistente y mantenible en todo el equipo.",
-            "Contribuí a la migración de useContext a Redux para el manejo de estado, mejorando la escalabilidad y el rendimiento de la aplicación.",
-          ],
+            "Biblioteca digital interactiva de eBooks y videos educativos para niños, en web y móvil.",
         },
         empatico: {
           title: "Empatico",
-          subtitle: "42mate – Desarrollador Frontend JR.",
           location: "Builders Movement – Plataforma educativa global",
           description:
-            "Empático es una plataforma digital gratuita que conecta aulas de todo el mundo para fomentar la empatía y la comprensión intercultural entre estudiantes. A través de actividades y juegos en línea, ofrece a docentes y alumnos experiencias que desarrollan habilidades socioemocionales esenciales.",
-          achievements: [
-            "Desarrollé y consumí APIs RESTful con Laravel y Next.js.",
-            "Implementé una búsqueda dinámica para mejorar la accesibilidad del contenido dentro de la plataforma.",
-          ],
+            "Plataforma gratuita que conecta aulas de todo el mundo para fomentar la empatía; APIs REST con Laravel y Next.js y búsqueda dinámica de contenido.",
         },
       },
     },

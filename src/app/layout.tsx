@@ -18,16 +18,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Mirko Perez | Software Developer",
+  metadataBase: new URL("https://mirko-perez.netlify.app"),
+  title: "Mirko Perez | Full Stack Developer",
   description:
-    "Software Developer portfolio of Mirko Perez, showcasing skills in React, Next.js, and modern web development.",
+    "Full Stack Developer portfolio of Mirko Perez: React, TypeScript, Node.js, Ruby on Rails, PostgreSQL, CRM/ERP/Odoo integrations and AI-assisted development.",
   icons: {
     icon: "/mp-icon.png",
   },
   openGraph: {
-    title: "Mirko Perez | Software Developer",
+    title: "Mirko Perez | Full Stack Developer",
     description:
-      "Explore my work, projects and software experience with modern tools like React, TypeScript, and Laravel.",
+      "Explore my experience building scalable web apps and enterprise integrations with React, TypeScript, Node.js and Ruby on Rails.",
     url: "https://mirko-perez.netlify.app",
     siteName: "Mirko Perez Portfolio",
     images: [
@@ -43,9 +44,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mirko Perez | Software Developer",
+    title: "Mirko Perez | Full Stack Developer",
     description:
-      "Software Developer Portfolio - React, Next.js, Laravel, Tailwind and more.",
+      "Full Stack Developer Portfolio - React, TypeScript, Node.js, Ruby on Rails and more.",
     images: ["/portfolio-img.png"],
   },
 };

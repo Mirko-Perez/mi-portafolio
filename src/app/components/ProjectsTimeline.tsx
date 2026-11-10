@@ -7,7 +7,7 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { FaReact, FaLaravel, FaPhp } from "react-icons/fa";
+import { FaReact } from "react-icons/fa";
 import { SiRubyonrails } from "react-icons/si";
 import { useLanguage } from "@/app/i18n/LanguageProvider";
 
@@ -28,28 +28,37 @@ const items = [
     techs: ["React", "Next.js", "Tailwind CSS"],
   },
   {
-    key: "fibrazo",
-    date: "2024 – 2025",
-    color: "#8892BF",
-    icon: <FaPhp />,
-    techs: ["Laravel", "PHP", "jQuery", "Blade", "Bootstrap", "MySQL"],
-    url: "https://www.fibrazo.com.ar/",
-  },
-  {
-    key: "skybrary",
-    date: "2023 – 2024",
-    color: "#F05340",
-    icon: <FaLaravel />,
-    techs: ["React", "TypeScript", "Sass", "Laravel", "Next.js"],
-    url: "https://www.skybrary.org/",
-  },
-  {
-    key: "empatico",
-    date: "2022 – 2024",
+    key: "mate42",
+    date: "06/2022 – 04/2025",
     color: "#61DBFB",
     icon: <FaReact />,
-    techs: ["Next.js", "Laravel", "React", "Sass", "MySQL", "Chakra UI"],
-    url: "https://empatico.buildersmovement.org/",
+    techs: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Vite",
+      "Redux",
+      "Laravel",
+      "Odoo",
+      "React Native",
+    ],
+    clients: [
+      {
+        key: "fibrazo",
+        url: "https://www.fibrazo.com.ar/",
+        techs: ["Laravel", "PHP", "jQuery", "Blade", "MySQL"],
+      },
+      {
+        key: "skybrary",
+        url: "https://www.skybrary.org/",
+        techs: ["React", "TypeScript", "Sass", "Laravel"],
+      },
+      {
+        key: "empatico",
+        url: "https://empatico.buildersmovement.org/",
+        techs: ["Next.js", "Laravel", "Chakra UI", "MySQL"],
+      },
+    ],
   },
 ] as const;
 
@@ -84,7 +93,6 @@ const ProjectsTimeline = () => {
     <VerticalTimeline lineColor={lineColor}>
       {items.map((item) => {
         const project = t.experience.projects[item.key];
-        const url = "url" in item ? item.url : undefined;
         const date =
           "current" in item
             ? `${item.date} ${t.experience.present}`
@@ -135,15 +143,37 @@ const ProjectsTimeline = () => {
               </>
             )}
 
-            {url && (
-              <a
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-700 dark:text-blue-400 mt-2 hover:underline inline-block"
-              >
-                {t.experience.visit}
-              </a>
+            {"clients" in item && (
+              <>
+                <p className="mt-4 mb-2">
+                  <strong>{t.experience.clients}</strong>
+                </p>
+                <ul className="space-y-4">
+                  {item.clients.map((client) => {
+                    const c = t.experience.clientProjects[client.key];
+                    return (
+                      <li key={client.key}>
+                        <p className="font-semibold">{c.title}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                          {c.location}
+                        </p>
+                        <p className="my-1">{c.description}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                          {client.techs.join(" · ")}
+                        </p>
+                        <a
+                          href={client.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-700 dark:text-blue-400 hover:underline inline-block"
+                        >
+                          {t.experience.visit}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </>
             )}
           </VerticalTimelineElement>
         );

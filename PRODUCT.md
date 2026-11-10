@@ -19,15 +19,16 @@ Full Stack engineer focused on clean, maintainable architecture, system integrat
 Single-page site (Next.js 15, Tailwind 4, Framer Motion) deployed on Netlify at https://mirko-perez.netlify.app. Sections: Hero, About Me and Education, Technologies and Tools (orbit), Experience (timeline), Contact (EmailJS form). Light and dark themes.
 
 ## Capabilities and Constraints
-- Content language: English. Spanish version is a possible later addition; the user answered both "English only" and "bilingual EN/ES", so bilingual support is UNDECIDED.
-- Experience entries on hand: Fibrazo Admin Panel, Skybrary, Empatico.
-- Education: Teclab (Técnico Superior en Programación, 2024-2026); UTN Resistencia (Systems Engineering, incomplete).
+- Bilingual EN/ES with a header switch (default English, choice saved in localStorage). SEO metadata stays in English by decision.
+- Education: Teclab (Técnico Superior en Programación, 2024-2026); UTN Resistencia (Systems Engineering, incomplete) stays listed.
+- Languages: Spanish native, English intermediate (B1).
+- Location and availability are deliberately not shown.
 
 ## Brand Commitments
-Name: Mirko Perez. Title: Software Developer / Full Stack Developer. Existing assets: `public/mp-icon.png`, `public/portfolio-img.png` (OG image).
+Name: Mirko Perez. Title: Full Stack Developer. Existing assets: `public/mp-icon.png`, `public/portfolio-img.png` (OG image).
 
 ## Evidence on Hand
-Real experience entries in `src/app/components/ProjectsTimeline.tsx`. No testimonials, case studies, metrics, or demo links confirmed; do not fabricate them.
+Real experience (Techsed, FutboLink, 42Mate with client projects Fibrazo, Skybrary, Empatico) in `src/app/components/ProjectsTimeline.tsx`; CV is the source of truth. No testimonials, metrics, or personal projects: the user decided personal projects do not add value, and has no real metrics. Do not fabricate them.
 
 ## Product Principles
 1. Make the profile legible in seconds for a skimming recruiter.

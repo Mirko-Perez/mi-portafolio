@@ -55,6 +55,18 @@ export default function HomePage() {
                   {t.about.utnDegree}
                 </p>
               </div>
+
+              <div className="mt-6">
+                <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">
+                  {t.about.languagesTitle}
+                </h3>
+                <p className="text-sm text-gray-700 dark:text-gray-300">
+                  {t.about.spanish}
+                </p>
+                <p className="text-sm text-gray-700 dark:text-gray-300">
+                  {t.about.english}
+                </p>
+              </div>
             </div>
           </div>
         </section>
